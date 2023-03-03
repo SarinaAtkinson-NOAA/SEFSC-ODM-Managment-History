@@ -109,7 +109,9 @@ mh_reversions = mh_dates_prep %>%
 
   # CHECK: REGULATION_ID 927 to confirm that new variables are working correctly 
   chk_reg = mh_reversions %>% filter(REGULATION_ID == "927")
-
+  chk_cluster = mh_reversions %>% 
+    arrange(CLUSTER, desc(SORT_DATE_USE), desc(vol), desc(page)) %>%
+    filter(CLUSTER == "128")
   
 # Create date related logic and overwrite end date as needed ####
 # Results in mh_dates data frame
